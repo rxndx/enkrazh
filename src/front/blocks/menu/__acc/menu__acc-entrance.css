@@ -1,0 +1,24 @@
+.menu__acc-entrance {
+    margin: 0;
+    padding: 58px;
+    border: 0;
+}
+
+button {
+    padding: 10px;
+    margin: 6px;
+    border: 1px solid #FC0000;
+    box-shadow: 0 0 10px #FF0000;
+
+    background-color: black;
+
+    font-family: a_MachinaNova, serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 44px;
+
+    color: #C67573;
+
+    text-shadow: 0 4px 4px #A50000;
+}

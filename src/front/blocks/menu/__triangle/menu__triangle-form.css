@@ -1,0 +1,17 @@
+.menu__triangle {
+    position: relative;
+    top: -10px;
+    right: -1200px;
+}
+
+.menu__triangle-form {
+    width: 108px;
+    height: 104px;
+
+    text-align: right;
+    box-sizing: border-box;
+    border: 2px solid #990000;
+    box-shadow: -1px 6px 4px #AD0000;
+
+    transform: rotate(-45deg);
+}
