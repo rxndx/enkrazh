@@ -1,4 +1,4 @@
 /target/
 /.idea/
 *.iml
-!/src/main/resources/application.yml
+!/src/main/resources/
