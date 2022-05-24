@@ -1,0 +1,12 @@
+.menu__panel-link {
+    text-decoration: none;
+    color: #CF1111;
+    font-family: 'Playfair-regular', sans-serif;
+    font-size: 33px;
+    line-height: 53px;
+}
+
+.menu__panel-link:hover {
+    opacity: 0.8;
+    transition: all .4s ease;
+}
