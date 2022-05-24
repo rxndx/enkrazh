@@ -17,4 +17,4 @@ ER-диаграмма базы данных (схематичная, в проц
 ![Диаграмма](https://github.com/rxndx/enkrazh/blob/main/img/photo_2022-04-19_14-48-04.jpg)
 
 ER-диаграмма базы данных (фактическая)
-![Диаграмма](https://github.com/rxndx/enkrazh/blob/main/src/front/img/er-oop.png)
+![Диаграмма](https://github.com/rxndx/enkrazh/blob/main/img/photo_2022-05-01_21-25-19.jpg)
