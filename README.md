@@ -14,7 +14,7 @@
 
 ### Видение системы:
 ER-диаграмма базы данных (схематичная, в процессе доработки по мере разрастания проекта)
-![Диаграмма](https://github.com/rxndx/enkrazh/blob/main/src/front/img/ER-диаграмма%20СУБД%20.png)
+![Диаграмма]([https://github.com/rxndx/enkrazh/blob/main/src/front/img/ER-диаграмма%20СУБД%20.png](https://github.com/rxndx/enkrazh/blob/main/img/photo_2022-04-19_14-48-04.jpg))
 
 ER-диаграмма базы данных (фактическая)
 ![Диаграмма](https://github.com/rxndx/enkrazh/blob/main/src/front/img/er-oop.png)
