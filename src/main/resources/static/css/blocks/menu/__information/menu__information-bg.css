@@ -1,0 +1,25 @@
+.menu__information-bg {
+    font-family: 'Source Sans Pro', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 110px;
+    line-height: 138px;
+    color: rgba(236, 232, 225, 0.1);
+    text-align: center;
+}
+
+.menu__information-text {
+    font-family: 'Source Serif Pro', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 60px;
+
+    text-align: justify;
+
+    background: linear-gradient(102.24deg, #D57474 107.93%, rgba(255, 255, 255, 0) 144.08%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow: 0 10px 4px #B80000;
+}

@@ -1,0 +1,24 @@
+.menu__acc {
+    position: relative;
+    right: -290px;
+}
+
+.menu__acc-information {
+    width: 1149px;
+    height: 300px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 141px;
+    text-align: center;
+}
+
+.menu__tframe {
+    position: relative;
+    top: 40px;
+    right: -30px;
+}
+
+.menu__bframe {
+    position: relative;
+    top: -36px;
+    right: -360px;
+}

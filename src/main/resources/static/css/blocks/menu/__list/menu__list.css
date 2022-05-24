@@ -1,0 +1,7 @@
+.menu__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    background: radial-gradient(50% 50% at 50% 50%, #480000 0%, rgba(72, 0, 0, 0) 100%);
+}

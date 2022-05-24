@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns ="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/pages/index.css" th:href="@{/css/pages/index.css}"/>
+    <link rel="shortcut icon" type="image/png" href="../static/img/icon.png">
+    <title>ENKRAZH</title>
+</head>
+<body>
+<div class="page" >
+    <header class="header">
+        <img class="header__logo" src="../static/img/LOGO.svg" alt="логотип энкраж" th:src="@{/img/LOGO.svg}">
+        <marquee class="header__news-container" > <!-- Скорее всего тут будет тег iframe -->
+            <span class="header__news-text" th:text="${important_news}"> </span>
+        </marquee>
+    </header>
+    <main class="content">
+        <section class="menu">
+            <nav class="menu__panel">
+                <ul class="menu__list"  >
+                    <li class="menu__list-item"><a class="menu__panel-link" href="#">Правила</a></li>
+                    <li class="menu__list-item"><a class="menu__panel-link" href="#">Мир</a></li>
+                    <li class="menu__list-item"><a class="menu__panel-link" href="#">FAQ</a></li>
+                    <li class="menu__list-item"><a class="menu__panel-link" href="#">Навигация</a></li>
+                    <li class="menu__list-item"><a class="menu__panel-link" href="#">Персонажи</a></li>
+                </ul>
+            </nav>
+            <img src="../static/img/banner_line.png" alt="линия под баннером" th:src="@{/img/banner_line.png}">
+            <nav class="menu__news">
+                    <ul class="menu__news-block" >
+                        <li class="menu__news-list"  th:each="post : ${posts}">
+                            <div class="menu__news-list-item">
+                                <p class="menu__news-text-data"  th:text="${#dates.format(post.time, 'dd/MM/yyyy')}">20.11.2021</p> <!-- вытягивать с бд -->
+                            </div>
+                            <div class="menu__news-white-list" aria-valuemax="93">
+                                <p class="menu__news-text-information"  th:text="${post.text}">Описание новости</p> <!-- вытягивать с бд -->
+                            </div>
+                        </li>
+                     </ul>
+            </nav>
+            <div class="menu__triangle">
+                <div class="menu__triangle-form">
+                    <p class="menu__triangle-text">" <br> <span th:text="${quantity}"></span> игроков <br> "</p> <!-- вытяг с бд -->
+                </div>
+            </div>
+            <div class="menu__acc">
+                <img class="menu__tframe" src="../static/img/frameone.png" alt="линия перед рег" th:src="@{/img/frameone.png}">
+                <div class="menu__acc-information">
+                    <form class="menu__acc-entrance">
+                        <button type="button">Sign In</button>
+                        <br>
+                        <button type="button">Log In</button>
+                    </form>
+                </div>
+                <img class="menu__bframe" src="../static/img/frametwo.png" alt="линия перед рег" th:src="@{/img/frametwo.png}">
+            </div>
+        </section>
+        <br>
+        <section class="__information">
+            <div class="__information-text">
+                <h2 class="menu__information-heading">“ Наша история начинается после конца. Где мы обязательно дадим начало, достойное наших проклятых душ ”</h2>
+                <!--<h3 class="menu__information-bg">ИНОЙ МИР</h3>
+                <p class="menu__information-text">ИНОЙ МИР</p>-->
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+    </footer>
+</div>
+</body>
+</html>
