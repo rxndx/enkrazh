@@ -1,5 +1,4 @@
 .menu__information-descrip-one {
-    font-family: 'Source Serif Pro', serif;
     font-weight: 400;
     font-size: 20px;
     line-height: 25px;
@@ -20,7 +19,6 @@
 }
 
 .menu__information-descrip-two {
-    font-family: 'Source Serif Pro', serif;
     font-weight: 400;
     font-size: 20px;
     line-height: 25px;
