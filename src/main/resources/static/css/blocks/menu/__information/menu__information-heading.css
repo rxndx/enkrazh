@@ -1,10 +1,3 @@
-.__information {
-    margin: 0 auto;
-    background-image: url("../../../../img/bg_select1.png");
-    max-width: 1440px;
-    background-repeat: no-repeat;
-}
-
 .menu__information-heading {
     font-family: 'Sitka', monospace;
     font-style: normal;
@@ -14,6 +7,7 @@
 
     position: relative;
     margin: 0 auto;
+    padding: 60px 0 0 0;
     max-width: 800px;
 
     justify-content: center;

@@ -2,4 +2,5 @@
     background: linear-gradient(92.37deg, rgba(255, 255, 255, 0.7) 50.15%, rgba(255, 255, 255, 0) 71.27%);
     width: 1200px;
     height: 48px;
+    text-overflow: clip;
 }

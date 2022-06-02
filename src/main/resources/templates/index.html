@@ -19,7 +19,7 @@
     <main class="content">
         <section class="menu">
             <nav class="menu__panel">
-                <ul class="menu__list"  >
+                <ul class="menu__list">
                     <li class="menu__list-item"><a class="menu__panel-link" href="#">Правила</a></li>
                     <li class="menu__list-item"><a class="menu__panel-link" href="#">Мир</a></li>
                     <li class="menu__list-item"><a class="menu__panel-link" href="#">FAQ</a></li>
@@ -32,17 +32,17 @@
                     <ul class="menu__news-block" >
                         <li class="menu__news-list"  th:each="post : ${posts}">
                             <div class="menu__news-list-item">
-                                <p class="menu__news-text-data"  th:text="${#dates.format(post.time, 'dd/MM/yyyy')}">20.11.2021</p> <!-- вытягивать с бд -->
+                                <p class="menu__news-text-data"  th:text="${#dates.format(post.time, 'dd/MM/yyyy')}">20.11.2021</p>
                             </div>
                             <div class="menu__news-white-list" aria-valuemax="93">
-                                <p class="menu__news-text-information"  th:text="${post.text}">Описание новости</p> <!-- вытягивать с бд -->
+                                <p class="menu__news-text-information"  th:text="${post.text}">Описание новости</p>
                             </div>
                         </li>
                      </ul>
             </nav>
             <div class="menu__triangle">
                 <div class="menu__triangle-form">
-                    <p class="menu__triangle-text">" <br> <span th:text="${quantity}"></span> игроков <br> "</p> <!-- вытяг с бд -->
+                    <p class="menu__triangle-text">" <br> <span th:text="${quantity}"></span> игроков <br> "</p>
                 </div>
             </div>
             <div class="menu__acc">
@@ -61,8 +61,26 @@
         <section class="__information">
             <div class="__information-text">
                 <h2 class="menu__information-heading">“ Наша история начинается после конца. Где мы обязательно дадим начало, достойное наших проклятых душ ”</h2>
-                <!--<h3 class="menu__information-bg">ИНОЙ МИР</h3>
-                <p class="menu__information-text">ИНОЙ МИР</p>-->
+                <div class="menu__information-box">
+                    <h3 class="menu__information-bg">ИНОЙ МИР</h3>
+                    <p class="menu__information-text">ИНОЙ МИР</p>
+                    <ul class="menu__information-descrip-one">
+                        <li class="menu__information-descrip-element-one">
+                            Это мир, который выходит за рамки нашего людского понимания, находящийся где-то там, в легендах, которые рассказывают о жизни после смерти. Мало кто верит в существование этого места, однако лишь до тех пор, пока самолично не окажется здесь. Сюда попадают все грешные души, что хоть единожды совершили один из семи смертных грехов и его пороков, и здесь, внутри неизвестного мира, им приходится отстаивать своё право на существование, бросая вызов всему.
+                        </li>
+                    </ul>
+                    <ul class="menu__information-descrip-two">
+                        <li class="menu__information-descrip-element-two">
+                            Мы оказываемся в замке, происхождение которого нам неизвестно. Мы оказываемся в совершенно новом и неизведанном мире, со своими собственными правилами, законами и природой. Более того, каждый из нас уже никогда больше не будет “настоящим” человеком.
+                        </li>
+                        <li class="menu__information-descrip-element-two">
+                            У каждого своя здесь миссия, но есть одна самая негласная: дело грешных душ - удержать равновесие и не позволить этому месту треснуть по швам, где к нашим спинам подступает то, с чем они столкнулись впервые. Они знают, что мир покинул их, поэтому будут строить свой собственный, в котором больше не встретятся несчастье и боль. Но чего всё это будет стоить? Смогут ли они выжить  среди междоусобиц и не разрушить последнюю надежду каждого, кто желает изменить своё прошлое или же будущее?
+                        </li>
+                    </ul>
+                    <img class="menu__information-woman" src="../static/img/woman1.png" alt="женщина" th:src="@{/img/woman1.png}">
+                    <div class="menu__information-underline"></div>
+                </div>
+                <br>
             </div>
         </section>
     </main>
