@@ -23,8 +23,14 @@
 
 @import url('../blocks/menu/__acc/menu__acc.css');
 @import url('../blocks/menu/__acc/menu__acc-entrance.css');
+@import url('../blocks/menu/__acc/menu__buttons.css');
+@import url('../blocks/menu/__acc/menu__modal.css');
 
 @import url('../blocks/menu/__information/menu__information.css');
 @import url('../blocks/menu/__information/menu__information-descrip.css');
 @import url('../blocks/menu/__information/menu__information-heading.css');
 @import url('../blocks/menu/__information/menu__information-bg.css');
+
+@import url('../blocks/menu/__details/menu__details.css');
+
+@import url('../blocks/menu/index__footer.css');

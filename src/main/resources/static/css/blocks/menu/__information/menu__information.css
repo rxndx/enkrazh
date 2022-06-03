@@ -5,6 +5,11 @@
     background-repeat: no-repeat;
 }
 
+.__information-text {
+    margin: 0;
+    padding: 0;
+}
+
 .menu__information-box {
     margin: 0 auto;
     position: relative;

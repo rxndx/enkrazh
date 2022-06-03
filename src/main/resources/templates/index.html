@@ -8,8 +8,8 @@
     <link rel="shortcut icon" type="image/png" href="../static/img/icon.png">
     <title>ENKRAZH</title>
 </head>
-<body>
-<div class="page" >
+<body class="p">
+<div class="page">
     <header class="header">
         <img class="header__logo" src="../static/img/LOGO.svg" alt="логотип энкраж" th:src="@{/img/LOGO.svg}">
         <marquee class="header__news-container" > <!-- Скорее всего тут будет тег iframe -->
@@ -20,11 +20,11 @@
         <section class="menu">
             <nav class="menu__panel">
                 <ul class="menu__list">
-                    <li class="menu__list-item"><a class="menu__panel-link" href="#">Правила</a></li>
-                    <li class="menu__list-item"><a class="menu__panel-link" href="#">Мир</a></li>
-                    <li class="menu__list-item"><a class="menu__panel-link" href="#">FAQ</a></li>
-                    <li class="menu__list-item"><a class="menu__panel-link" href="#">Навигация</a></li>
-                    <li class="menu__list-item"><a class="menu__panel-link" href="#">Персонажи</a></li>
+                    <li class="menu__list-item"><a class="menu__panel-link" id="Правила" href="#">Правила</a></li>
+                    <li class="menu__list-item"><a class="menu__panel-link" id="Мир" href="#">Мир</a></li>
+                    <li class="menu__list-item"><a class="menu__panel-link" id="FAQ" href="#">FAQ</a></li>
+                    <li class="menu__list-item"><a class="menu__panel-link" id="Навигация" href="#">Навигация</a></li>
+                    <li class="menu__list-item"><a class="menu__panel-link" id="Персонажи" href="#">Персонажи</a></li>
                 </ul>
             </nav>
             <img src="../static/img/banner_line.png" alt="линия под баннером" th:src="@{/img/banner_line.png}">
@@ -48,16 +48,61 @@
             <div class="menu__acc">
                 <img class="menu__tframe" src="../static/img/frameone.png" alt="линия перед рег" th:src="@{/img/frameone.png}">
                 <div class="menu__acc-information">
-                    <form class="menu__acc-entrance">
-                        <button type="button">Sign In</button>
+                    <div class="menu__acc-entrance">
+
+                        <button class="show button" type="button">Sign In</button>
+                        <div class="modal">
+                            <div class="modal-box">
+                                <span class="close-button">X</span>
+                                <div class="modal__header-buttons">
+                                    <p class="modal__header-button">Есть аккаунт?</p>
+                                    <a href="#" class="modal__header-button">Заходи</a> <!-- Линк на заход в аккаунт -->
+                                </div>
+                                <div class="modal__main">
+                                    <h1 class="modal__main-caption">Начать путешествие в Энкраже</h1>
+                                    <p class="modal__main-comment">Душа вот-вот отправится в башню</p>
+                                </div>
+                                <div class="modal__line"></div>
+                                <div class="modal__forms">
+                                    <!-- TODO: Регистрация аккаунта -->
+                                    <label for="login_name">Введите логин</label>
+                                    <input type="text" id="login_name" name="login_name" placeholder="Логин">
+                                    <label for="email">Введите почту</label>
+                                    <input type="email" id="email" name="email" placeholder="Почта">
+                                    <label for="password">Создайте пароль</label>
+                                    <input type="password" id="password" name="password" placeholder="Пароль">
+                                    <label for="confirm_password">Подтвердите пароль</label>
+                                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Повторить пароль">
+                                </div>
+                                <input class="modal__form-send" type="submit">
+                            </div>
+                        </div>
                         <br>
-                        <button type="button">Log In</button>
-                    </form>
+
+                        <button class="show button" type="button">Log In</button>
+                        <div class="modal">
+                            <div class="modal-box">
+                                <span class="close-button">X</span>
+                                <div class="modal__main">
+                                    <h1 class="modal__main-caption">Возвращение души</h1>
+                                    <p class="modal__main-comment">Зайдите в аккаунт</p>
+                                </div>
+                                <div class="modal__line"></div>
+                                <div class="modal__forms">
+                                    <!-- TODO: Вход в аккаунт -->
+                                    <label for="in_email">Введите почту</label>
+                                    <input type="email" id="in_email" name="email" placeholder="Почта">
+                                    <label for="in_password">Создайте пароль</label>
+                                    <input type="password" id="in_password" name="password" placeholder="Пароль">
+                                </div>
+                                <input class="modal__form-send" type="submit">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <img class="menu__bframe" src="../static/img/frametwo.png" alt="линия перед рег" th:src="@{/img/frametwo.png}">
             </div>
         </section>
-        <br>
         <section class="__information" th:src="@{/img/bg_select1.png}">
             <div class="__information-text">
                 <h2 class="menu__information-heading">“ Наша история начинается после конца. Где мы обязательно дадим начало, достойное наших проклятых душ ”</h2>
@@ -79,13 +124,52 @@
                     </ul>
                     <img class="menu__information-woman" src="../static/img/woman1.png" alt="женщина" th:src="@{/img/woman1.png}">
                     <div class="menu__information-underline"></div>
+                    <br><br><br><br><br><br><br><br>
                 </div>
                 <br>
             </div>
         </section>
+        <section class="__details" th:src="@{/img/bg_select2.png}">
+            <div class="__information-text">
+                <h2 class="menu__information-heading">“ Путь Кошмара ”</h2>
+                <div class="menu__information-box">
+                    <h3 class="menu__information-bg">ТЕНЬ БЫЛОЙ ЖИЗНИ</h3>
+                    <p class="menu__information-text">ТЕНЬ БЫЛОЙ ЖИЗНИ</p>
+                    <p class="menu__details">“Тишина. Мертвая. Глухая. Такая, что давит изнутри. И это беспамятство в беспросветной мгле. Ты помнишь, кто ты? Зачем ты здесь? Ты жив? Или, быть может, ты уже мертв? Голову разрывает, словно под давлением, от этих бесконечных вопросов. И книга ответов откроется лишь после череды испытаний, пройдя через которые, ты поймешь, что оказался в новом месте с новыми законами и правилами, где ты стал заложником ошибок своего прошлого и теперь вынужден их искупить. Так говорят правила, но выбор всегда только за тобой.
+                        <br><br>Запомни кое-что: этот мир не помогает тем, кто слаб. Не вытаскивает из лап забвения тех, кто сдался. Ты хочешь этого? Тогда присоединись к таким же обреченным мертвецам, что стали Пустыми. Стали серьезной опасностью для таких, как ты. Не бойся проблем, не бойся новых законов, бойся слабости. Именно она – первая проблема, которая испортит твою новую жизнь. Здесь таким просто не выжить. Не выжить и тем, что противятся своей новой природе. Так что постарайся привыкнуть как можно скорее к новому телу и новым особенностям жизни.
+                        <br><br>Ты еще не понял, что такое Энкраж? Это место каждое столетие принимает новые души, что уже преступили черту жизни. Одни выбирают здесь спокойствие, желая забыть прошлое, другие гонятся за своей памятью, а третьи становятся частью этого мира. Ты можешь делать, все, что хочешь, но только не забывай, что даже здесь есть свои правила. И только тебе решать, хочешь ли ты столкнуться с хранителями мира мертвых, что не спускают глаз с намеченного тобою пути, и испытать судьбу.
+                        <br><br>Кто-то может подумать, что это сумасшествие. Что невозможно жить, когда с разных сторон тебя подстерегает опасность. Но все давно привыкли к такому темпу жизни и просто перестали замечать эти нюансы. Настолько, что они даже не заметили, как беда резко постучалась в их дверь, решившая напомнить этим обнаглевшим грешникам, кто здесь хозяин. Временные сложности? Все может быть. Энкраж редко видал на своем веку беды неизвестного происхождения. Редко рождались те, что были бы способны нарушить особенную гармонию мира. Но только вот в каждом правиле есть свои исключения. И тебе не повезло столкнуться именно с ним.
+                        ” </p>
+                    <img class="menu__details-skull" src="../static/img/skull.png" alt="череп" th:src="@{/img/skull.png}">
+                    <br><br><br><br><br><br><br><br><br>
+                </div>
+            </div>
+        </section>
     </main>
     <footer class="footer">
+        <div class="__block">
+            <div class="footer__block">
+                <p class="footer__inform">ОБЩАЯ ИНФОРМАЦИЯ</p>
+                <ul class="footer__inform-list">
+                    <li class="footer_list-element"><a class="footer_inform-element" href="#Правила">Правила пользования</a></li>
+                    <li class="footer_list-element"><a class="footer_inform-element" href="#Мир">Изучение мира</a></li>
+                    <li class="footer_list-element"><a class="footer_inform-element" href="#FAQ">Ответы на часто <br> задаваемые вопросы</a></li>
+                    <li class="footer_list-element"><a class="footer_inform-element" href="#Навигация">Навигация по сайту</a></li>
+                    <li class="footer_list-element"><a class="footer_inform-element" href="#Персонажи">Список персонажей</a></li>
+                </ul>
+            </div>
+            <div class="footer__links">
+                <button class="footer_buttons" type="button"><a href="#"></a>Официальная группа</button>
+                <button class="footer_buttons" type="button"><a href="#"></a>Дискорд-канал</button>
+            </div>
+            <div class="footer__commun">
+                <p class="footer__contact">© 2022 Энкраж <br>
+                    Служба поддержки <br>
+                    enkrazh_community@gmail.com</p>
+            </div>
+        </div>
     </footer>
 </div>
+<script src="../static/js/modal.js" th:src="@{/js/modal.js}"></script>
 </body>
 </html>
