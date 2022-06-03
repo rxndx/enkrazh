@@ -1,0 +1,16 @@
+.p {
+    margin: 0 auto;
+    background-image: url("../../../../img/background.png");
+    max-width: 1440px;
+    overflow-x: hidden;
+}
+
+.page {
+    margin: 0 auto;
+    max-width: 1440px;
+    background-color: #210000;
+}
+
+/* * {
+    outline: 1px solid red;
+} */

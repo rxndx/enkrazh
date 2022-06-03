@@ -1,0 +1,35 @@
+.__information {
+    margin: 0 auto;
+    background-image: url("../../../../../img/bg_select1.png");
+    max-width: 1440px;
+    background-repeat: no-repeat;
+}
+
+.__information-text {
+    margin: 0;
+    padding: 0;
+}
+
+.menu__information-box {
+    margin: 0 auto;
+    position: relative;
+    max-width: 1440px;
+    background-repeat: no-repeat;
+    font-family: 'Source Serif Pro', serif;
+}
+
+.menu__information-woman {
+    max-width: 1000px;
+    margin: -715px 0 0 0;
+    padding: 0 0 0 297px;
+    z-index: auto;
+    opacity: .4;
+}
+
+.menu__information-underline {
+    margin: 0 0 0 350px;
+    padding: 0;
+    width: 900px;
+    height: 1.5px;
+    background-color: red;
+}

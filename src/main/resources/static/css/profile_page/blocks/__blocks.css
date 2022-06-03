@@ -1,0 +1,23 @@
+.__discussion {
+    margin: 100px 80px auto 80px;
+    padding: 0;
+}
+
+.__discussion-blocks {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 23px;
+    max-width: 1440px;
+}
+
+.__discussion-block {
+    background: #490000;
+    border-radius: 45px;
+}
+
+.__discussion-block { grid-area: 1 / 1 / 2 / 2; width: 900px; height: auto; }
+.__discussion-block#block-4 { grid-area: 1 / 2 / 2 / 3; max-width: 350px; height: auto; }
+.__discussion-block#block-5 { grid-area: 2 / 2 / 3 / 3; max-width: 350px; height: auto; }
+.__discussion-block#block-6 { grid-area: 3 / 2 / 4 / 3; max-width: 350px; height: auto; }

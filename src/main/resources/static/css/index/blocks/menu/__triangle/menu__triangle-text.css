@@ -1,0 +1,11 @@
+.menu__triangle-text {
+    font-family: 'Playfair-regular', serif;
+    color: white;
+
+    margin: 8px;
+    padding: 6px;
+    font-size: 16px;
+    text-align: center;
+
+    transform: rotate(45deg);
+}

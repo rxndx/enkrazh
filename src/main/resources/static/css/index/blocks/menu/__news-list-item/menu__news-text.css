@@ -1,0 +1,19 @@
+.menu__news-text-data {
+    margin: 0;
+    padding: 13px;
+    font-family: 'Playfair-regular', serif;
+    font-size: 15px;
+    text-align: center;
+    text-after-overflow: clip;
+    color: red;
+}
+
+.menu__news-text-information {
+    margin: 0;
+    padding: 13px;
+    font-size: 15px;
+    text-align: left;
+    text-after-overflow: clip;
+    text-decoration: none;
+    color: black;
+}

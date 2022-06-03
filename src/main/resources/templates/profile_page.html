@@ -1,12 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" xmlns ="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-
-    <!-- TODO: страница при входе в аккаунт -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/pages/profile_page.css" th:href="@{/css/pages/profile_page.css}"/>
+    <link rel="shortcut icon" type="image/png" href="../static/img/icon.png">
+    <title>Профиль</title>
 </head>
-<body>
+<body class="p">
+<div class="page">
+<header class="header">
+    <img class="header__logo" src="../static/img/LOGO.svg" alt="логотип энкраж" th:src="@{/img/LOGO.svg}">
+    <marquee class="header__news-container" > <!-- Скорее всего тут будет тег iframe -->
+        <span class="header__news-text" th:text="${important_news}"> </span>
+    </marquee>
+</header>
+<main class="content">
+    <section class="menu">
+        <nav class="menu__panel">
+            <ul class="menu__list">
+                <li class="menu__list-item"><a class="menu__panel-link" id="Правила" href="#">Правила</a></li>
+                <li class="menu__list-item"><a class="menu__panel-link" id="Мир" href="#">Мир</a></li>
+                <li class="menu__list-item"><a class="menu__panel-link" id="FAQ" href="#">FAQ</a></li>
+                <li class="menu__list-item"><a class="menu__panel-link" id="Навигация" href="#">Навигация</a></li>
+                <li class="menu__list-item"><a class="menu__panel-link" id="Персонажи" href="#">Персонажи</a></li>
+            </ul>
+        </nav>
+        <img src="../static/img/banner_line.png" alt="линия под баннером" th:src="@{/img/banner_line.png}">
+        <nav class="menu__news">
+            <ul class="menu__news-block" >
+                <li class="menu__news-list"  th:each="post : ${posts}">
+                    <div class="menu__news-list-item">
+                        <p class="menu__news-text-data"  th:text="${#dates.format(post.time, 'dd/MM/yyyy')}">20.11.2021</p>
+                    </div>
+                    <div class="menu__news-white-list" aria-valuemax="93">
+                        <p class="menu__news-text-information"  th:text="${post.text}">Описание новости</p>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="menu__triangle">
+            <div class="menu__triangle-form">
+                <p class="menu__triangle-text">" <br> <span th:text="${quantity}"></span> игроков <br> "</p>
+            </div>
+        </div>
+        <div class="menu__acc">
+            <img class="menu__tframe" src="../static/img/frameone.png" alt="линия перед рег" th:src="@{/img/frameone.png}">
+            <div class="menu__acc-information" id="true" th:src="@{/img/inlog.png}">
+                <div class="information">
+                    <div class="acc-information">
+                        <div class="menu__acc-avatar"><br></div> <!-- TODO: аватар пользователя -->
+                        <div class="menu__acc-nickname">Логин игрока</div>
+                    </div>
+                    <div class="menu__acc-settings">
+                        <ul class="menu__acc-list">
+                            <li class="menu__acc-list-element"><a href="#" class="menu__acc-list-link">Мой профиль</a></a></li>
+                            <li class="menu__acc-list-element"><a href="#" class="menu__acc-list-link">Мои анкеты</a></li>
+                            <li class="menu__acc-list-element"><a href="#" class="menu__acc-list-link">Мои достижения</a></li>
+                            <li class="menu__acc-list-element"><a href="#" class="menu__acc-list-link">магазин</a></li>
+                            <li class="menu__acc-list-element"><a href="#" class="menu__acc-list-link">Настройки</a></li>
+                            <li class="menu__acc-list-element"><a href="#" class="menu__acc-list-link">выйти из аккаунта</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu__triangle" id="money">
+                        <div class="menu__triangle-form">
+                            <!-- TODO: поменять на вывод бабла -->
+                            <p class="menu__triangle-text">" <br> <!-- <span th:text="${quantity}"></span> --> мавросов <br> "</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img class="menu__bframe" src="../static/img/frametwo.png" alt="линия перед рег" th:src="@{/img/frametwo.png}">
+        </div>
+    </section>
+    <br>
+    <section class="__discussion">
+        <div class="__discussion-blocks">
+            <!-- TODO: вытягивать обсуждения с БД, до 5 шт -->
+            <div class="__discussion-block">
+                <div class="__discussion-block-header">
+                    <p class="__discussion-block-header-text">Название технического блока</p>
+                </div>
+                <div class="__discussion-block-body">
+                    <div class="__discussion-block-body-part1">
+                        <div class="__discussion-block-body-part1-text">
+                            <div class="__discussion-block-body-part1-text-icon"></div> <!-- когда-то вытягивать -->
+                            <p class="__discussion-block-body-part1-text-name">Название обсуждения</p> <!-- название -->
+                            <p class="__discussion-block-body-part1-text-tag">Тег обсуждения</p> <!-- тег обсуждения -->
+                        </div>
+                        <!-- TODO: надо ограничить вывод по символам -->
+                        <!-- описание локации -->
+                        <p class="__discussion-block-body-part1-text-desc">Описание обсуждения при его возможном наличии, если пользователь тут что-то хочет дополнительно представить для нас.</p>
+                    </div>
+                    <div class="__discussion-block-body-part2">
+                        <div class="__discussion-block-body-part2-inform">
+                            <div class="__discussion-block-body-part2-inform-avatar"></div>
+                            <div class="__discussion-block-body-part2-inform-text">
+                                <p>Никнейм</p> <!-- кто оставил коммент -->
+                                <p>10.11.12. 13:55</p> <!-- когда оставил коммент -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- TODO: администрация онлайн -->
+            <div class="__discussion-block" id="block-4">
+                <div class="__discussion-block-header" id="small-1">
+                    <p class="__discussion-block-header-text">Администрация</p>
+                </div>
+                <div class="__discussion-block-admin-body">
+                    <div class="__discussion-block-body-admin-info">
+                        <div class="__discussion-block-body-admin-avatar"></div> <!-- когда-то вытягивать -->
+                        <div class="__discussion-block-admin-info">
+                            <p class="__discussion-block-body-admin-info-name">Никнейм</p> <!-- ник -->
+                            <p class="__discussion-block-body-admin-info-tag">Хтоя</p> <!-- роль -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TODO: игроки онлайн -->
+            <div class="__discussion-block" id="block-5">
+                <div class="__discussion-block-header" id="small-2">
+                    <p class="__discussion-block-header-text">Игроки онлайн</p>
+                </div>
+                <div class="__discussion-block-body">
+                    <p class="__discussion-block-body-online">Ники игроков</p>
+                </div>
+            </div>
+
+            <!-- TODO: активные квесты -->
+            <div class="__discussion-block" id="block-6">
+                <div class="__discussion-block-header" id="small-3">
+                    <p class="__discussion-block-header-text">Активные квесты</p> <!-- выборка -->
+                </div>
+                <div class="__discussion-block-body-quest">
+                    <p class="__discussion-block-body-quest-info-name">НАЗВАНИЕ КВЕСТА</p> <!-- название -->
+                    <p class="__discussion-block-body-quest-info-tag">Тег квеста</p> <!-- тэг обсуждения, выводить самые свежие < 5 -->
+                </div>
+                <!-- вытягивать -->
+                <p class="__discussion-block-body-quest-text">Текст с кратким описанием всего содержимого квеста</p>
+            </div>
+        </div>
+    </section>
+</main>
+    <footer class="footer">
+        <div class="__block" id="profile">
+            <div class="footer__block">
+                <p class="footer__inform">ОБЩАЯ ИНФОРМАЦИЯ</p>
+                <ul class="footer__inform-list">
+                    <li class="footer_list-element"><a class="footer_inform-element" href="#Правила">Правила пользования</a></li>
+                    <li class="footer_list-element"><a class="footer_inform-element" href="#Мир">Изучение мира</a></li>
+                    <li class="footer_list-element"><a class="footer_inform-element" href="#FAQ">Ответы на часто <br> задаваемые вопросы</a></li>
+                    <li class="footer_list-element"><a class="footer_inform-element" href="#Навигация">Навигация по сайту</a></li>
+                    <li class="footer_list-element"><a class="footer_inform-element" href="#Персонажи">Список персонажей</a></li>
+                </ul>
+            </div>
+            <div class="footer__links">
+                <button class="footer_buttons" type="button"><a href="#"></a>Официальная группа</button>
+                <button class="footer_buttons" type="button"><a href="#"></a>Дискорд-канал</button>
+            </div>
+            <div class="footer__commun">
+                <p class="footer__contact">© 2022 Энкраж <br>
+                    Служба поддержки <br>
+                    enkrazh_community@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+</div>
 </body>
 </html>

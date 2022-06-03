@@ -1,0 +1,30 @@
+.__details {
+    margin: 0 auto;
+    padding: 0;
+    background-image: url("../../../../../img/bg_select2.png");
+    max-width: 1440px;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.menu__details {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: justify;
+
+    background: linear-gradient(102.24deg, #FFFFFF 107.93%, rgba(255, 255, 255, 0) 144.08%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow: 0 10px 4px #B80000;
+
+    margin: 0;
+    padding: 70px 200px 0 200px;
+}
+
+.menu__details-skull {
+    max-width: 1440px;
+    margin: 90px 0 0 1050px;
+    padding: 0;
+}
