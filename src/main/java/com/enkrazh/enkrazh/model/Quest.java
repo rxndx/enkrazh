@@ -27,8 +27,8 @@ public class Quest {
     @Column (name = "tags")
     private String tags;
 
-    @Column (name = "mode")
-    private String mode;
+    @Enumerated(EnumType.STRING)
+    private QuestMode mode;
 
     @OneToMany(mappedBy = "quest")
     private Set<Profile_Quest> playerQuest;

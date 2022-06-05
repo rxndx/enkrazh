@@ -8,7 +8,10 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -17,10 +20,28 @@ public class DiscussionService {
     @Autowired
     private DiscussionsRepository repository;
 
-    public List<Post> getPostsFromDiscussion(DiscussionType type){
+    public List<Post> getPostsFromDiscussion(DiscussionType type) throws Exception{
+       return repository.findDiscussionsByType(type).orElseThrow( () -> new Exception(
+               "Discussion not found"
+       )).get(0).getPosts();
+    }
 
-        //TODO: add warning if quantity of  posts <5
-        return repository.findDiscussionsByType(type).getPosts();
+    public List<Discussions> getDiscussions(){
+        return repository.findAll();
+    }
+    public List<Post> getNews() throws Exception {
+        List<Post> posts = new ArrayList<>();
+        try {
+            posts= getPostsFromDiscussion(DiscussionType.NEWS)
+                    .stream()
+                    .sorted(Comparator.comparing(Post::getTime).reversed())
+                    .collect(Collectors.toList());
 
+            if(posts.size()>5) posts = posts.subList(0,5);
+
+        } catch ( Exception e){
+        }
+
+        return  posts;
     }
 }

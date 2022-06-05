@@ -31,8 +31,8 @@ public class PlayerProfile {
     @Column (name = "profile_photo")
     private  String profilePhotoLink;
 
-    @OneToOne(mappedBy = "player")
-    private Marvos marvos;
+    @Column (name = "mavros")
+    private int marvos;
 
     @OneToMany(mappedBy = "player", cascade = CascadeType.ALL)
     private List<LoginHistory> loginHistoryList;

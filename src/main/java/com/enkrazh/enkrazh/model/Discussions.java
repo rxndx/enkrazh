@@ -23,6 +23,10 @@ public class Discussions {
     @Column (name = "description")
     private String description;
 
+    @Column (name = "tags")
+    private String tags;
+
+
     @Column (name = "img")
     private String img;
 

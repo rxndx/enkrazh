@@ -15,5 +15,5 @@ import java.util.Optional;
 @Repository
 public interface DiscussionsRepository extends JpaRepository<Discussions,Integer> {
 
-    Discussions findDiscussionsByType(DiscussionType type);
+    Optional<List<Discussions>> findDiscussionsByType(DiscussionType type);
 }
