@@ -49,11 +49,11 @@
             <img class="menu__tframe" src="../static/img/frameone.png" alt="линия перед рег" th:src="@{/img/frameone.png}">
             <div class="menu__acc-information" id="true" th:src="@{/img/inlog.png}">
                 <div class="information">
-                    <div class="acc-information">
-                        <div class="menu__acc-avatar"><br></div> <!-- TODO: дать возможность добавить фото -->
-                        <div class="menu__acc-nickname"><span th:text="${username}"></span></div>
+                    <div class="acc__information">
+                        <div class="menu__acc-avatar"><br></div>
                     </div>
                     <div class="menu__acc-settings">
+                        <div class="menu__acc-nickname"><span id="nickname" th:text="${username}"></span></div>
                         <ul class="menu__acc-list">
                             <li class="menu__acc-list-element"><a href="#" class="menu__acc-list-link">Мой профиль</a></a></li>
                             <li class="menu__acc-list-element"><a href="#" class="menu__acc-list-link">Мои анкеты</a></li>
@@ -81,26 +81,25 @@
                     <p class="__discussion-block-header-text">Название технического блока</p>
                 </div>
                 <div class="__discussion-block-body"  th:each="discussion : ${discussions}" >
-                    <div class="__discussion-block-body-part1">
-                        <div class="__discussion-block-body-part1-text">
-                            <div class="__discussion-block-body-part1-text-icon"></div> <!-- когда-то вытягивать -->
-                            <p class="__discussion-block-body-part1-text-name"  th:text="${discussion.name}">Название обсуждения</p> <!-- название -->
-                            <p class="__discussion-block-body-part1-text-tag"  th:text="${discussion.tags}">Тег обсуждения</p> <!-- тег обсуждения -->
-                        </div>
-                        <!-- описание локации -->
-                        <p class="__discussion-block-body-part1-text-desc" th:with="kwd=${discussion.description}, len=${#strings.length(discussion.description)}">
+                    <div class="__discussion-block-content">
+                        <div class="__discussion-block-icon"></div>
+                        <div class="__discussion-block-information">
+                            <div class="__discussion-block-information-header">
+                                <p class="__discussion-block-information-name" th:text="${discussion.name}">Название обсуждения</p>
+                                <p class="__discussion-block-information-tag" th:text="${discussion.tags}">Тег обсуждения</p>
+                            </div>
+                            <p class="__discussion-block-information-body" th:with="kwd=${discussion.description}, len=${#strings.length(discussion.description)}">
                              <span th:text=" ( ${len > 70} )
                                             ? ${#strings.substring(kwd,0,30)} + '…'
                                             : ${kwd}"></span>
-                        </p>
+                            </p>
+                        </div>
                     </div>
-                    <div class="__discussion-block-body-part2">
-                        <div class="__discussion-block-body-part2-inform">
-                            <div class="__discussion-block-body-part2-inform-avatar"></div>
-                            <div class="__discussion-block-body-part2-inform-text">
-                                <p>Никнейм</p> <!-- кто оставил коммент -->
-                                <p>10.11.12. 13:55</p> <!-- когда оставил коммент -->
-                            </div>
+                    <div class="__discussion-block-ins">
+                        <div class="__discussion-ins-avatar"></div>
+                        <div class="__discussion-ins-person">
+                            <p class="__discussion-ins-person-nickname">Никнейм</p>
+                            <p class="__discussion-ins-person-date">10.11.12. 13:55</p>
                         </div>
                     </div>
                 </div>
@@ -111,12 +110,10 @@
                     <p class="__discussion-block-header-text">Администрация</p>
                 </div>
                 <div class="__discussion-block-admin-body"  th:each="admin : ${admins}">
-                    <div class="__discussion-block-body-admin-info">
-                        <div class="__discussion-block-body-admin-avatar"></div> <!-- когда-то вытягивать -->
-                        <div class="__discussion-block-admin-info" >
-                            <p class="__discussion-block-body-admin-info-name" th:text="${admin.username}">Никнейм</p> <!-- ник -->
-                            <p class="__discussion-block-body-admin-info-tag"} >АДМИН</p> <!-- роль -->
-                        </div>
+                    <div class="__discussion-block-body-admin-avatar"></div>
+                    <div class="__discussion-block-admin-info">
+                        <p class="__discussion-block-body-admin-info-name" th:text="${admin.username}">Никнейм</p>
+                        <p class="__discussion-block-body-admin-info-tag">АДМИН</p>
                     </div>
                 </div>
             </div>
@@ -125,18 +122,20 @@
                 <div class="__discussion-block-header" id="small-2">
                     <p class="__discussion-block-header-text">Игроки онлайн</p>
                 </div>
-                <div class="__discussion-block-body"  th:each="player : ${players}">
+                <div class="__discussion-block-players"  th:each="player : ${players}">
                     <p class="__discussion-block-body-online" th:text="${player.username}">Ники игроков</p>
                 </div>
             </div>
 
             <div class="__discussion-block" id="block-6">
                 <div class="__discussion-block-header" id="small-3">
-                    <p class="__discussion-block-header-text">Активные квесты</p> <!-- выборка -->
+                    <p class="__discussion-block-header-text">Активные квесты</p>
                 </div>
                 <div class="__discussion-block-body-quest"  th:each="quest : ${quests}">
-                    <p class="__discussion-block-body-quest-info-name" th:text="${quest.name}">НАЗВАНИЕ КВЕСТА</p> <!-- название -->
-                    <p class="__discussion-block-body-quest-info-tag" th:text="${quest.tags}">Тег квеста</p> <!-- тэг обсуждения, выводить самые свежие < 5 -->
+                    <div class="__discussion-block-information-quest">
+                        <p class="__discussion-block-body-quest-info-name" th:text="${quest.name}">НАЗВАНИЕ КВЕСТА</p>
+                        <p class="__discussion-block-body-quest-info-tag" th:text="${quest.tags}">Тег квеста</p>
+                    </div>
                     <p class="__discussion-block-body-quest-text" th:text="${quest.description}">Текст с кратким описанием всего содержимого квеста</p>
                 </div>
 

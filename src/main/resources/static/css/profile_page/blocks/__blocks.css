@@ -5,19 +5,20 @@
 
 .__discussion-blocks {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 23px;
+    grid-template-areas:
+    "a a b"
+    "a a c"
+    "a a d";
     max-width: 1440px;
 }
 
 .__discussion-block {
     background: #490000;
     border-radius: 45px;
+    grid-area: a;
+    width: 900px;
 }
 
-.__discussion-block { grid-area: 1 / 1 / 2 / 2; width: 900px; height: auto; }
-.__discussion-block#block-4 { grid-area: 1 / 2 / 2 / 3; max-width: 350px; height: auto; }
-.__discussion-block#block-5 { grid-area: 2 / 2 / 3 / 3; max-width: 350px; height: auto; }
-.__discussion-block#block-6 { grid-area: 3 / 2 / 4 / 3; max-width: 350px; height: auto; }
+.__discussion-block#block-4 { grid-area: b; max-width: 350px; max-height: 1750px; padding: 0 0 50px 0; }
+.__discussion-block#block-5 { grid-area: c; max-width: 350px; max-height: 1750px; padding: 0 0 50px 0; }
+.__discussion-block#block-6 { grid-area: d; max-width: 350px; max-height: 1750px; padding: 0 0 50px 0; }

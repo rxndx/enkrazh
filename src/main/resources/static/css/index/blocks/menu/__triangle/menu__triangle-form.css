@@ -6,8 +6,8 @@
 
 .menu__triangle#money {
     position: relative;
-    top: 100px;
-    right: -380px;
+    margin: 120px 0 0 45px;
+    right: -310px;
 }
 
 .menu__triangle-form {

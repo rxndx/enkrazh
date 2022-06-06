@@ -5,6 +5,15 @@
     height: 60px;
 }
 
+.__discussion-block-header#small-1,
+.__discussion-block-header#small-2,
+.__discussion-block-header#small-3 {
+    background: #000000;
+    border-radius: 14px;
+    width: auto;
+    height: 60px;
+}
+
 .__discussion-block-header-text {
     font-family: 'Sitka', monospace;
     margin: 0;
@@ -24,8 +33,274 @@
 .__discussion-block-body {
     display: flex;
     flex-direction: row;
+    margin: 0 0 0 60px;
+}
+
+.__discussion-block-content {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0 0 0;
+    max-width: 600px;
+}
+
+.__discussion-block-icon {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    margin: 15px 20px 0 20px;
+    min-width: 80px;
+    max-width: 80px;
+}
+
+.__discussion-block-information {
+    display: flex;
+    flex-direction: column;
+    min-width: 450px;
+    max-width: 450px;
+}
+
+.__discussion-block-information-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    max-width: 350px;
+}
+
+.__discussion-block-information-name {
+    font-family: 'Sitka', monospace;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 18px;
+    margin: 20px 0 0 0;
+
+    max-width: 250px;
+    min-width: 250px;
+    word-wrap: break-word;
+    letter-spacing: 2px;
+
+    color: #FFFFFF;
+}
+
+.__discussion-block-information-tag {
+    background: #6A2828;
+    border-radius: 8px;
+    min-width: 110px;
+    max-width: 150px;
+    height: 25px;
+
+    font-family: 'Sitka', monospace;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 25px;
+    text-align: center;
+    word-wrap: break-word;
+
+    color: #FFFFFF;
+
+    margin: 15px 10px 0 40px;
+    padding: 2px 0 0 0;
+}
+
+.__discussion-block-information-body {
+    margin: 10px 140px 0 0;
+    text-overflow: clip;
+
+    font-family: 'Sitka', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: left;
+    word-wrap: break-word;
+
+    max-width: 400px;
+
+    color: #FFFFFF;
+}
+
+.__discussion-block-ins {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0 0 15px;
+    justify-content: flex-start;
+    max-width: 180px;
+}
+
+.__discussion-ins-avatar {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    margin: 20px 20px 0 0;
+}
+
+.__discussion-ins-person {
+    display: flex;
+    flex-direction: column;
+    width: 110px;
+    height: 25px;
+
+    font-family: 'Sitka', monospace;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 25px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.__discussion-ins-person-nickname {
+    margin: 25px 0 0 0;
+    padding: 0;
+}
+
+.__discussion-ins-person-date {
     margin: 0;
-    padding: 0 0 30px 0;
+    padding: 0;
+}
+
+.__discussion-block-admin-body {
+    display: flex;
+    flex-direction: row;
+}
+
+.__discussion-block-body-admin-avatar {
+    border-radius: 50%;
+    min-width: 50px;
+    max-width: 50px;
+    height: 50px;
+    background-color: white;
+    margin: 20px 20px 0 30px;
+}
+
+.__discussion-block-admin-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.__discussion-block-body-admin-info-name {
+    font-family: 'Sitka', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 14px;
+    text-align: center;
+
+    margin: 20px 0 0 0;
+    padding: 0 10px 0 0;
+
+    color: #FFFFFF;
+}
+
+.__discussion-block-body-admin-info-tag {
+    background: #6A2828;
+    border-radius: 8px;
+    width: 90px;
+    height: 25px;
+
+    font-family: 'Sitka', monospace;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 25px;
+    text-align: left;
+
+    color: #FFFFFF;
+
+    margin: 15px 0 0 0;
+    padding: 0 0 0 35px;
+}
+
+.__discussion-block-players {
+    display: flex;
+    flex-direction: row;
+}
+
+.__discussion-block-body-online {
+    margin: 15px 0 0 30px;
+    padding: 0 0 0 8px;
+    word-wrap: break-word;
+    width: auto;
+
+    font-family: 'Sitka', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 14px;
+
+    color: #FFFFFF;
+}
+
+.__discussion-block-body-quest {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0 0 10px;
+}
+
+.__discussion-block-information-quest {
+    display: flex;
+    flex-direction: row;
+}
+
+.__discussion-block-body-quest-info-name {
+    font-family: 'Sitka', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 14px;
+    text-align: center;
+    word-wrap: break-word;
+
+    padding: 0 10px 0 0;
+
+    color: #FFFFFF;
+    margin: 20px 0 0 15px;
+}
+
+.__discussion-block-body-quest-info-tag {
+    background: #6A2828;
+    border-radius: 8px;
+    min-width: 110px;
+    max-width: 150px;
+    height: 25px;
+
+    font-family: 'Sitka', monospace;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 25px;
+    text-align: justify;
+    word-wrap: break-word;
+
+    color: #FFFFFF;
+
+    padding: 2px 0 0 35px;
+}
+
+.__discussion-block-body-quest-text {
+    margin: 1px 40px 32px 15px;
+
+    text-overflow: clip;
+
+    font-family: 'Sitka', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: justify;
+    word-wrap: break-word;
+
+    max-width: 450px;
+
+    color: #FFFFFF;
+}
+
+/*
+
+.__discussion-block-body {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
 }
 
 .__discussion-block-body-part1 {
@@ -54,8 +329,8 @@
     font-weight: 600;
     font-size: 20px;
     line-height: 18px;
-    text-align: justify;
     margin: 20px 0 0 0;
+    word-wrap: break-word;
 
     color: #FFFFFF;
 }
@@ -76,8 +351,8 @@
 
     color: #FFFFFF;
 
-    margin: 15px 0 0 30px;
-    padding: 2px 0 0 55px;
+    margin: 15px 0 0 0;
+    padding: 2px 0 0 35px;
 }
 
 .__discussion-block-body-part1-text-desc {
@@ -131,19 +406,6 @@
     color: #FFFFFF;
 }
 
-.__discussion-block-body-part2-inform-text {
-    margin: 10px 0 0 0;
-}
-
-.__discussion-block-header#small-1,
-.__discussion-block-header#small-2,
-.__discussion-block-header#small-3 {
-    background: #000000;
-    border-radius: 14px;
-    width: auto;
-    height: 60px;
-}
-
 .__discussion-block-body-admin-info {
     display: flex;
     flex-direction: row;
@@ -151,11 +413,24 @@
     padding: 0;
 }
 
+.__discussion-block-players {
+    display: inline-block;
+    width: 30%;
+}
+
 .__discussion-block-body-online {
-    margin: 20px 0 0 20px;
-    padding: 0 0 0 0;
+    margin: 15px 0 0 30px;
+    padding: 0 0 0 8px;
     word-wrap: break-word;
-    max-width: 300px;
+    width: auto;
+
+    font-family: 'Sitka', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 14px;
+
+    color: #FFFFFF;
 }
 
 .__discussion-block-body-admin-info-tag,
@@ -165,23 +440,11 @@
 }
 
 .__discussion-block-admin-body {
-    margin: 10px 0 0 0;
+    margin: 0;
 }
 
 .__discussion-block-admin-info {
     margin: 20px 0 0 0;
-}
-
-.__discussion-block-body-online {
-    font-family: 'Sitka', serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 14px;
-    text-align: center;
-    max-width: 300px;
-
-    color: #FFFFFF;
 }
 
 .__discussion-block-body-quest-info-name {
@@ -228,3 +491,4 @@
 
     color: #FFFFFF;
 }
+ */
