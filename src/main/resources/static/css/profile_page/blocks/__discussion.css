@@ -234,7 +234,7 @@
 .__discussion-block-body-quest {
     display: flex;
     flex-direction: column;
-    margin: 10px 0 0 10px;
+    margin: 0 0 0 15px;
 }
 
 .__discussion-block-information-quest {
@@ -277,7 +277,7 @@
 }
 
 .__discussion-block-body-quest-text {
-    margin: 1px 40px 32px 15px;
+    margin: 1px 40px 0 15px;
 
     text-overflow: clip;
 
