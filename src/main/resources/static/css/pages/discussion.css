@@ -1,0 +1,32 @@
+@import url('../vendor/normalize.css');
+@import url('../vendor/fonts/font.css');
+
+@import url('../index/blocks/page/page.css');
+
+@import url('../index/blocks/header/header.css');
+@import url('../index/blocks/header/__logo/header__logo.css');
+@import url('../index/blocks/header/__news-container/header__news-container.css');
+@import url('../index/blocks/header/__news-text/header__news-text.css');
+
+@import url('../index/blocks/menu/menu.css');
+@import url('../index/blocks/menu/__panel-link/menu__panel-link.css');
+@import url('../index/blocks/menu/__list/menu__list.css');
+@import url('../index/blocks/menu/__list-item/menu__list-item.css');
+@import url('../index/blocks/menu/__news-list-item/menu__news-list-item.css');
+@import url('../index/blocks/menu/__news-list-item/menu__news-white-list.css');
+@import url('../index/blocks/menu/__news-list-item/menu__news-list.css');
+@import url('../index/blocks/menu/__news-list-item/menu__news-text.css');
+@import url('../index/blocks/menu/__news-list-item/menu__news.css');
+
+@import url('../index/blocks/menu/__triangle/menu__triangle-form.css');
+@import url('../index/blocks/menu/__triangle/menu__triangle-text.css');
+
+@import url('../index/blocks/menu/__acc/menu__acc.css');
+
+@import url('../profile_page/blocks/__blocks.css');
+@import url('../profile_page/blocks/menu__acc-information.css');
+@import url('../index/blocks/menu/__acc/menu__acc-entrance.css');
+
+@import url('../discussion/blocks/__parley.css');
+
+@import url('../index/blocks/menu/index__footer.css');

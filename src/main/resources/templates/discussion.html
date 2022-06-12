@@ -1,12 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" xmlns ="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/pages/discussion.css" th:href="@{/css/pages/discussion.css}"/>
+    <link rel="shortcut icon" type="image/png" href="../static/img/icon.png">
+    <title>Обсуждение</title>
   <!-- TODO: шаблон для обсуждения чтобы оставлять комментарии -->
 </head>
-<body>
-
+<body class="p">
+<div class="page">
+    <header class="header">
+        <img class="header__logo" src="../static/img/LOGO.svg" alt="логотип энкраж" th:src="@{/img/LOGO.svg}">
+        <marquee class="header__news-container" > <!-- Скорее всего тут будет тег iframe -->
+            <span class="header__news-text" th:text="${important_news}"> </span>
+        </marquee>
+    </header>
+    <main class="content">
+        <section class="menu">
+            <nav class="menu__panel">
+                <ul class="menu__list">
+                    <li class="menu__list-item"><a class="menu__panel-link" id="Правила" href="#">Правила</a></li>
+                    <li class="menu__list-item"><a class="menu__panel-link" id="Мир" href="#">Мир</a></li>
+                    <li class="menu__list-item"><a class="menu__panel-link" id="FAQ" href="#">FAQ</a></li>
+                    <li class="menu__list-item"><a class="menu__panel-link" id="Навигация" href="#">Навигация</a></li>
+                    <li class="menu__list-item"><a class="menu__panel-link" id="Персонажи" href="#">Персонажи</a></li>
+                </ul>
+            </nav>
+            <img src="../static/img/banner_line.png" alt="линия под баннером" th:src="@{/img/banner_line.png}">
+            <nav class="menu__news">
+                <ul class="menu__news-block" >
+                    <li class="menu__news-list"  th:each="post : ${posts}">
+                        <div class="menu__news-list-item">
+                            <p class="menu__news-text-data"  th:text="${#dates.format(post.time, 'dd/MM/yyyy')}">20.11.2021</p>
+                        </div>
+                        <div class="menu__news-white-list" aria-valuemax="93">
+                            <p class="menu__news-text-information"  th:text="${post.text}">Описание новости</p>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="menu__triangle">
+                <div class="menu__triangle-form">
+                    <p class="menu__triangle-text">" <br> <span th:text="${quantity}"></span> игроков <br> "</p>
+                </div>
+            </div>
+            <div class="menu__acc">
+                <img class="menu__tframe" src="../static/img/frameone.png" alt="линия перед рег" th:src="@{/img/frameone.png}">
+                <div class="menu__acc-information" id="true" th:src="@{/img/inlog.png}">
+                    <div class="information">
+                        <div class="acc__information">
+                            <div class="menu__acc-avatar"><br></div>
+                        </div>
+                        <div class="menu__acc-settings">
+                            <div class="menu__acc-nickname"><span id="nickname" th:text="${username}"></span></div>
+                            <ul class="menu__acc-list">
+                                <li class="menu__acc-list-element"><a href="#" class="menu__acc-list-link">Мой профиль</a></a></li>
+                                <li class="menu__acc-list-element"><a href="#" class="menu__acc-list-link">Мои анкеты</a></li>
+                                <li class="menu__acc-list-element"><a href="#" class="menu__acc-list-link">Мои достижения</a></li>
+                                <li class="menu__acc-list-element"><a href="#" class="menu__acc-list-link">магазин</a></li>
+                                <li class="menu__acc-list-element"><a href="#" class="menu__acc-list-link">Настройки</a></li>
+                                <li class="menu__acc-list-element"><a href="#" class="menu__acc-list-link">выйти из аккаунта</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu__triangle" id="money">
+                            <div class="menu__triangle-form">
+                                <p class="menu__triangle-text">" <br> <span th:text="${mavros_quantity}"></span> мавросов <br> "</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img class="menu__bframe" src="../static/img/frametwo.png" alt="линия перед рег" th:src="@{/img/frametwo.png}">
+            </div>
+        </section>
+        <section class="parley">
+            <a class="__parley-block-navigation-links">
+                Техническое обсуждение.</a> <!-- ссылка на предыдущую страницу откуда пришли -->
+            <div class="__parley-block">
+                <div class="__parley-block-header">
+                    <h2 class="__parley-block-information">
+                        <div class="__parley-block-information-name">
+                            Название обсуждения. <!-- вытягиваем название обсуждения -->
+                        </div>
+                        <div class="__parley-block-information-edit">
+                            <button class="__parley-block-navigation-edit-button"> <!-- TODO: редактировать название обсуждения по кнопке если админ -->
+                                Редактировать.
+                            </button>
+                        </div>
+                    </h2>
+                </div>
+                <div class="__parley-block-body"> <!-- вытягивать комментарий в обсуждении -->
+                    <div class="__parley-block-body-avatar"></div>
+                    <div class="__parley-block-body-text">
+                        основной текст обсуждения
+                    </div>
+                </div>
+                <div class="__parley-reply">
+                    <div class="__parley-block-reply" contenteditable="true" role="textbox" aria-multiline="true"></div>
+                    <div class="__parley-block-submit">
+                        <button>Отправить.</button> <!-- TODO: функция отправки по клику метод POST -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br>
+    </main>
+    <footer class="footer">
+        <div class="__block" id="profile">
+            <div class="footer__block">
+                <p class="footer__inform">ОБЩАЯ ИНФОРМАЦИЯ</p>
+                <ul class="footer__inform-list">
+                    <li class="footer_list-element"><a class="footer_inform-element" href="#Правила">Правила пользования</a></li>
+                    <li class="footer_list-element"><a class="footer_inform-element" href="#Мир">Изучение мира</a></li>
+                    <li class="footer_list-element"><a class="footer_inform-element" href="#FAQ">Ответы на часто <br> задаваемые вопросы</a></li>
+                    <li class="footer_list-element"><a class="footer_inform-element" href="#Навигация">Навигация по сайту</a></li>
+                    <li class="footer_list-element"><a class="footer_inform-element" href="#Персонажи">Список персонажей</a></li>
+                </ul>
+            </div>
+            <div class="footer__links">
+                <button class="footer_buttons" type="button"><a href="#"></a>Официальная группа</button>
+                <button class="footer_buttons" type="button"><a href="#"></a>Дискорд-канал</button>
+            </div>
+            <div class="footer__commun">
+                <p class="footer__contact">© 2022 Энкраж <br>
+                    Служба поддержки <br>
+                    enkrazh_community@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+</div>
 </body>
 </html>

@@ -4,7 +4,9 @@
     border: 0;
 }
 
-button {
+button#button-1,
+button#button-2,
+.footer_buttons {
     padding: 10px;
     margin: 6px;
     border: 1px solid #FC0000;
