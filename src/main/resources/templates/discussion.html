@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../static/css/pages/discussion.css" th:href="@{/css/pages/discussion.css}"/>
     <link rel="shortcut icon" type="image/png" href="../static/img/icon.png">
     <title>Обсуждение</title>
-  <!-- TODO: шаблон для обсуждения чтобы оставлять комментарии -->
 </head>
 <body class="p">
 <div class="page">
@@ -76,7 +75,7 @@
         </section>
         <section class="parley">
             <a class="__parley-block-navigation-links">
-                Техническое обсуждение.</a> <!-- ссылка на предыдущую страницу откуда пришли -->
+                Техническое обсуждение.</a> <!-- TODO: ссылка на предыдущую страницу откуда пришли -->
             <div class="__parley-block">
                 <div class="__parley-block-header">
                     <h2 class="__parley-block-information">
@@ -90,10 +89,18 @@
                         </div>
                     </h2>
                 </div>
-                <div class="__parley-block-body"> <!-- вытягивать комментарий в обсуждении -->
-                    <div class="__parley-block-body-avatar"></div>
-                    <div class="__parley-block-body-text">
-                        основной текст обсуждения
+                <div class="__parley-block-main">
+                    <div class="__parley-block-body"> <!-- TODO: вытягивать комментарий в обсуждении по пользователю -->
+                        <div class="__parley-block-body-avatar"></div>
+                        <div class="__parley-block-body-text">
+                            основной текст обсуждения
+                        </div>
+                    </div>
+                    <div class="__parley-block-body-editer">
+                        <a href="#" aria-label="Delete" class="__parley-block-delete-button">
+                            Удалить.</a> <!-- TODO: удалить комментарий -->
+                        <a href="#" aria-label="Edit" class="__parley-block-edit-button">
+                            Редактировать.</a> <!-- TODO: редактировать комментарий -->
                     </div>
                 </div>
                 <div class="__parley-reply">

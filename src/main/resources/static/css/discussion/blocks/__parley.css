@@ -107,3 +107,15 @@
     color: #ffffff;
     margin: 0 0 0 1100px;
 }
+
+.__parley-block-delete-button,
+.__parley-block-edit-button {
+    font-family: a_MachinaNova, serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 44px;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 0 0 0 1100px;
+}
