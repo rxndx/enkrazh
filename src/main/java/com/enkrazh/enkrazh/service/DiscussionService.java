@@ -44,4 +44,12 @@ public class DiscussionService {
 
         return  posts;
     }
+
+    public Discussions getDiscussionById(int id){
+        return repository.findDiscussionsById(id);
+    }
+
+    public void changeDiscussionName (int idDiscussion, String newName){
+        repository.changeDiscussionName(idDiscussion,newName);
+    }
 }

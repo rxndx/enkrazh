@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../static/css/pages/discussion.css" th:href="@{/css/pages/discussion.css}"/>
     <link rel="shortcut icon" type="image/png" href="../static/img/icon.png">
     <title>Обсуждение</title>
+
 </head>
 <body class="p">
 <div class="page">
@@ -53,7 +54,7 @@
                             <div class="menu__acc-avatar"><br></div>
                         </div>
                         <div class="menu__acc-settings">
-                            <div class="menu__acc-nickname"><span id="nickname" th:text="${username}"></span></div>
+                            <div class="menu__acc-nickname"><span id="nickname" th:text="${user.username}"></span></div>
                             <ul class="menu__acc-list">
                                 <li class="menu__acc-list-element"><a href="#" class="menu__acc-list-link">Мой профиль</a></a></li>
                                 <li class="menu__acc-list-element"><a href="#" class="menu__acc-list-link">Мои анкеты</a></li>
@@ -65,7 +66,7 @@
                         </div>
                         <div class="menu__triangle" id="money">
                             <div class="menu__triangle-form">
-                                <p class="menu__triangle-text">" <br> <span th:text="${mavros_quantity}"></span> мавросов <br> "</p>
+                                <p class="menu__triangle-text">" <br> <span th:text="${user.marvos}"></span> мавросов <br> "</p>
                             </div>
                         </div>
                     </div>
@@ -74,13 +75,14 @@
             </div>
         </section>
         <section class="parley">
-            <a class="__parley-block-navigation-links">
-                Техническое обсуждение.</a> <!-- TODO: ссылка на предыдущую страницу откуда пришли -->
+            <a class="__parley-block-navigation-links" th:onclick="window.open('/', '_self');"> ГЛАВНАЯ > </a>
+            <a class="__parley-block-navigation-links" th:onclick="window.open('/profile?id='+ [[${user.id}]], '_self');" > ПРОФИЛЬ > </a>
+            <a class="__parley-block-navigation-links" th:text="${discussion.name}" >   </a>
             <div class="__parley-block">
                 <div class="__parley-block-header">
                     <h2 class="__parley-block-information">
-                        <div class="__parley-block-information-name">
-                            Название обсуждения. <!-- вытягиваем название обсуждения -->
+                        <div class="__parley-block-information-name" th:text="${discussion.name}">
+                            Название обсуждения.
                         </div>
                         <div class="__parley-block-information-edit">
                             <button class="__parley-block-navigation-edit-button"> <!-- TODO: редактировать название обсуждения по кнопке если админ -->
@@ -89,25 +91,40 @@
                         </div>
                     </h2>
                 </div>
-                <div class="__parley-block-main">
-                    <div class="__parley-block-body"> <!-- TODO: вытягивать комментарий в обсуждении по пользователю -->
+                <div class="__parley-block-body-text" th:text="${discussion.description}" >
+                    описание обсуждения
+                </div>
+                <div class="__parley-block-main" th:each="post : ${posts}">
+
+                    <div class="__parley-block-body"   >
                         <div class="__parley-block-body-avatar"></div>
-                        <div class="__parley-block-body-text">
-                            основной текст обсуждения
-                        </div>
+                        <div class="__parley-block-body-text" th:text="${post.player.username}" ></div>
+                        <div class="__parley-block-body-text" th:text="${post.text}" ></div>
+
                     </div>
-                    <div class="__parley-block-body-editer">
-                        <a href="#" aria-label="Delete" class="__parley-block-delete-button">
-                            Удалить.</a> <!-- TODO: удалить комментарий -->
-                        <a href="#" aria-label="Edit" class="__parley-block-edit-button">
-                            Редактировать.</a> <!-- TODO: редактировать комментарий -->
+                    <div class="__parley-block-body-editer" style="background:#2f0e0e;" >
+                        <a type="button" class="__parley-block-delete-button"
+                           th:onclick="if (confirm('Ви дійсно бажаєте видалити пост?')) window.open('/profile/'+ [[${user.id}]] +'/discussion/'+[[${discussion.id}]]+'/post/'+[[${post.id}]], '_self');"
+                           >
+                            Удалить.</a>
+                        <p  aria-label="Edit" class="__parley-block-edit-button">
+                            Редактировать.</p> <!-- TODO: редактировать комментарий -->
                     </div>
                 </div>
                 <div class="__parley-reply">
-                    <div class="__parley-block-reply" contenteditable="true" role="textbox" aria-multiline="true"></div>
-                    <div class="__parley-block-submit">
-                        <button>Отправить.</button> <!-- TODO: функция отправки по клику метод POST -->
-                    </div>
+                    <form th:action="@{/profile/{profileId}/discussion/{dicsId}(dicsId=${discussion.id}, profileId=${user.id})}" method="post" class="__parley-block-reply" aria-multiline="true">
+                        <table>
+                            <tr>
+                                <td><input type="text" name="post"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="submit" value="Отправить">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+
                 </div>
             </div>
         </section>

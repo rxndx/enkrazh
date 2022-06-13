@@ -53,7 +53,7 @@
                         <div class="menu__acc-avatar"><br></div>
                     </div>
                     <div class="menu__acc-settings">
-                        <div class="menu__acc-nickname"><span id="nickname" th:text="${username}"></span></div>
+                        <div class="menu__acc-nickname"><span id="nickname" th:text="${user.username}"></span></div>
                         <ul class="menu__acc-list">
                             <li class="menu__acc-list-element"><a href="#" class="menu__acc-list-link">Мой профиль</a></a></li>
                             <li class="menu__acc-list-element"><a href="#" class="menu__acc-list-link">Мои анкеты</a></li>
@@ -65,7 +65,7 @@
                     </div>
                     <div class="menu__triangle" id="money">
                         <div class="menu__triangle-form">
-                            <p class="menu__triangle-text">" <br> <span th:text="${mavros_quantity}"></span> мавросов <br> "</p>
+                            <p class="menu__triangle-text">" <br> <span th:text="${user.marvos}"></span> мавросов <br> "</p>
                         </div>
                     </div>
                 </div>
@@ -80,12 +80,12 @@
                 <div class="__discussion-block-header">
                     <p class="__discussion-block-header-text">Название технического блока</p>
                 </div>
-                <div class="__discussion-block-body"  th:each="discussion : ${discussions}" >
+                <div class="__discussion-block-body"  th:each="discussion : ${discussions}"  th:attr="onclick=|window.open('/profile/'+'${user.id}'+'/discussion?id='+'${discussion.id}','_self')|">
                     <div class="__discussion-block-content">
                         <div class="__discussion-block-icon"></div>
                         <div class="__discussion-block-information">
                             <div class="__discussion-block-information-header">
-                                <p class="__discussion-block-information-name" th:text="${discussion.name}">Название обсуждения</p>
+                                <a class="__discussion-block-information-name" th:text="${discussion.name}"   >Название обсуждения</a>
                                 <p class="__discussion-block-information-tag" th:text="${discussion.tags}">Тег обсуждения</p>
                             </div>
                             <p class="__discussion-block-information-body" th:with="kwd=${discussion.description}, len=${#strings.length(discussion.description)}">

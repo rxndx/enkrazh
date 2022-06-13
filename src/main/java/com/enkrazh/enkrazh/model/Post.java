@@ -42,10 +42,10 @@ public class Post {
     private Discussions discussion;
 
 
-    public Post(String text, String type, Data time, PlayerProfile player, Discussions discussion) {
+    public Post(String text, String type, Date time, PlayerProfile player, Discussions discussion) {
         this.text = text;
         this.type = type;
-        this.time = (Date) time;
+        this.time = time;
         this.player = player;
         this.discussion = discussion;
     }
