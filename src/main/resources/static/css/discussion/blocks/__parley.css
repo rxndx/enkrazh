@@ -36,6 +36,7 @@
     flex-direction: row;
 }
 
+/*
 .__parley-block-navigation-edit-button {
     position: absolute;
     background-color: black;
@@ -51,7 +52,7 @@
 
     top: 1210px;
     left: 1000px;
-}
+} */
 
 .__parley-block-body {
     display: flex;
