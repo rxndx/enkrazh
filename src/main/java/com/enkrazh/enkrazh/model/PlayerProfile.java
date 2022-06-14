@@ -22,6 +22,9 @@ public class PlayerProfile {
     @Column (name = "passwd")
     private String passwd;
 
+    @Transient
+    private String confirmPassword;
+
     @Column (name = "username", unique = true)
     private  String username;
 

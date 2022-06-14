@@ -49,59 +49,11 @@
                 <img class="menu__tframe" src="../static/img/frameone.png" alt="линия перед рег" th:src="@{/img/frameone.png}">
                 <div class="menu__acc-information">
                     <div class="menu__acc-entrance">
-
-                        <button class="show button" type="button" id="button-1">Sign In</button>
-                        <div class="modal" id="modal-1">
-                            <div class="modal-box">
-                                <span class="close-button" id="close-1">X</span>
-                                <div class="modal__header-buttons">
-                                    <p class="modal__header-button">Войти через Google</p>
-                                    <a href="#" class="modal__header-button">Вход</a> <!-- TODO: Google регистрация (вход) -->
-                                </div>
-                                <div class="modal__main">
-                                    <h1 class="modal__main-caption">Начать путешествие в Энкраже</h1>
-                                    <p class="modal__main-comment">Душа вот-вот отправится в башню</p>
-                                </div>
-                                <div class="modal__line"></div>
-                                <div class="modal__forms">
-                                    <!-- TODO: Регистрация аккаунта -->
-                                    <label for="login_name">Введите логин</label>
-                                    <input type="text" id="login_name" name="login_name" placeholder="Логин">
-                                    <label for="email">Введите почту</label>
-                                    <input type="email" id="email" name="email" placeholder="Почта">
-                                    <label for="password">Создайте пароль</label>
-                                    <input type="password" id="password" name="password" placeholder="Пароль">
-                                    <label for="confirm_password">Подтвердите пароль</label>
-                                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Повторить пароль">
-                                </div>
-                                <input class="modal__form-send" type="submit">
-                            </div>
-                        </div>
+                        <button class="show button" type="button" id="button-1"
+                                th:attr="onclick=|window.open('/signup')|">Sign In</button>
                         <br>
-
-                        <button class="show button" type="button" id="button-2">Log In</button>
-                        <div class="modal" id="modal-2">
-                            <div class="modal-box">
-                                <span class="close-button" id="close-2">X</span>
-                                <div class="modal__header-buttons">
-                                    <p class="modal__header-button">Войти через Google</p>
-                                    <a href="#" class="modal__header-button">Вход</a> <!-- TODO: Google вход -->
-                                </div>
-                                <div class="modal__main">
-                                    <h1 class="modal__main-caption">Возвращение души</h1>
-                                    <p class="modal__main-comment">Зайдите в аккаунт</p>
-                                </div>
-                                <div class="modal__line"></div>
-                                <div class="modal__forms">
-                                    <!-- TODO: Вход в аккаунт -->
-                                    <label for="in_email">Введите почту</label>
-                                    <input type="email" id="in_email" name="email" placeholder="Почта">
-                                    <label for="in_password">Создайте пароль</label>
-                                    <input type="password" id="in_password" name="password" placeholder="Пароль">
-                                </div>
-                                <input class="modal__form-send" type="submit">
-                            </div>
-                        </div>
+                        <button class="show button" type="button" id="button-2"
+                                th:attr="onclick=|window.open('/login')|">Log In</button>
                     </div>
                 </div>
                 <img class="menu__bframe" src="../static/img/frametwo.png" alt="линия перед рег" th:src="@{/img/frametwo.png}">

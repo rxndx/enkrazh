@@ -5,6 +5,7 @@ import com.enkrazh.enkrazh.model.PlayerRole;
 import com.enkrazh.enkrazh.repo.PlayerProfileRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +18,17 @@ public class PlayerProfileService {
     @Autowired
     private final PlayerProfileRepository playerProfileRepository;
 
+    private PasswordEncoder passwordEncoder;
+
+    public void save(PlayerProfile playerProfile) {
+        playerProfile.setPasswd(passwordEncoder.encode(playerProfile.getPasswd()));
+        playerProfile.setRole(PlayerRole.PLAYER);
+        playerProfileRepository.save(playerProfile);
+    }
+
+    public Optional<PlayerProfile> getPlayerProfileByUsername(String username) {
+        return playerProfileRepository.getPlayerProfileByUsername(username);
+    }
 
     public  int getQuantityProfiles (){
         return (int) playerProfileRepository.count();

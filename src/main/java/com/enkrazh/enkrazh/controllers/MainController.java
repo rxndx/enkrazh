@@ -1,40 +1,82 @@
 package com.enkrazh.enkrazh.controllers;
 
 import com.enkrazh.enkrazh.model.*;
+import com.enkrazh.enkrazh.repo.PlayerProfileRepository;
 import com.enkrazh.enkrazh.service.DiscussionService;
 import com.enkrazh.enkrazh.service.PlayerProfileService;
 import com.enkrazh.enkrazh.service.PostService;
 import com.enkrazh.enkrazh.service.QuestService;
+import com.enkrazh.enkrazh.validation.PlayerValidation;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @Controller
 @AllArgsConstructor
 @Transactional
 public class MainController {
+
+    private PlayerProfileRepository playerProfileRepository;
+
+    private PlayerValidation playerValidation;
     private final PlayerProfileService playerProfileService;
     private final DiscussionService discussionService;
     private  final QuestService questService;
+    private  final PostService postService;
 
-private  final PostService postService;
+    public PlayerProfileRepository getPlayerProfileRepository() {
+        return playerProfileRepository;
+    }
+
+    @Autowired
+    public void getPlayerProfileRepository(PlayerProfileRepository playerProfileRepository) {
+        this.playerProfileRepository = playerProfileRepository;
+    }
+
+    @GetMapping("/login")
+    public String getLoginPage(String error, String logout, Model model) {
+        if (error != null) {
+            model.addAttribute("error", "Bad credentials.");
+        }
+        if (logout != null) {
+            model.addAttribute("message", "Logged out successfully.");
+        }
+        return "login";
+    }
+
+    @GetMapping("/signup")
+    public String registration(Model model) {
+        model.addAttribute("userForm", new PlayerProfile());
+        return "signup";
+    }
+
+    @PostMapping("/signup")
+    public String register(@ModelAttribute("userForm") PlayerProfile userForm, BindingResult result, Model model) {
+        playerValidation.validate(userForm, result);
+
+        if (result.hasErrors()) {
+            return "index";
+        }
+
+        playerProfileService.save(userForm);
+
+        return "index";
+    }
 
 
     @GetMapping("/")
-    public String loadWelcomePage(
-           Model model
-    ) throws Exception {
+    public String loadWelcomePage(Model model) throws Exception {
 
         List<Post> posts = discussionService.getNews();
 
@@ -46,11 +88,25 @@ private  final PostService postService;
         return "index";
     }
 
-
     @GetMapping("/profile")
+    public String getOwnProfile() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        PlayerProfile playerProfile =
+                playerProfileService.getPlayerProfileByUsername(authentication.getName()).get();
+        System.out.println("Redirect to: /profile?id=" + playerProfile.getId());
+        return "redirect:/profile?id=" + playerProfile.getId();
+    }
+
+    @GetMapping(value = "/profile", params = "id")
     public String loadAccountPage(@RequestParam(value = "id") int accountId,
                                  Model model
     ) throws Exception {
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        PlayerProfile checkProfile = playerProfileService.getPlayerProfileByUsername(authentication.getName()).get();
+        if (accountId != checkProfile.getId()) {
+            return "redirect:/profile?id=" + checkProfile.getId();
+        }
 
         PlayerProfile playerProfile = playerProfileService.getPlayer(accountId);
         List<Post> posts = discussionService.getNews();

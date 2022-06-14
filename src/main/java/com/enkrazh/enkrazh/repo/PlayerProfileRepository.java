@@ -11,6 +11,7 @@ import java.util.Optional;
 @Repository
 public interface PlayerProfileRepository extends JpaRepository<PlayerProfile,Integer> {
 
+    Optional<PlayerProfile> getPlayerProfileByUsername(String username);
 
     Optional<PlayerProfile> getPlayerProfileById(int accountId);
 
