@@ -19,6 +19,7 @@ public class PostService {
         return postRepository.findById(postId).orElseThrow();
     }
 
+
     public void publishPost(Post post){
         postRepository.save(post);
     }
